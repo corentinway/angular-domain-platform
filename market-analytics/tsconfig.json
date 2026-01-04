@@ -1,6 +1,14 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
-    "isolatedModules": true
+    "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "importHelpers": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
@@ -24,6 +32,5 @@
       "module": "CommonJS",
       "moduleResolution": "Node10"
     }
-  },
-  "extends": "./tsconfig.base.json"
+  }
 }

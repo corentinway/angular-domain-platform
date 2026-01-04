@@ -6,7 +6,7 @@ import { CORE_CONFIG, CoreConfig } from './config.token';
   providedIn: 'root',
 })
 export class ConfigService {
-  private readonly config = inject(CORE_CONFIG);
+  private readonly config : CoreConfig = inject(CORE_CONFIG);
 
   readonly apiUrl = signal(this.config.apiUrl);
   readonly environment = signal(this.config.environment);

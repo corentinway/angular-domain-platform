@@ -1,0 +1,29 @@
+{
+  "name": "core-config",
+  "root": "libs/core-config",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/core-config/src",
+  "prefix": "lib",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "core-config/ng-package.json",
+        "tsConfig": "core-config/tsconfig.lib.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "core-config/tsconfig.lib.prod.json"
+        },
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
