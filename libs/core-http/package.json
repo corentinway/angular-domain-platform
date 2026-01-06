@@ -1,0 +1,11 @@
+{
+  "name": "@portfolio-platform/core-http",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/core": "^20.3.0",
+    "@analogjs/vite-plugin-angular": "~1.19.1",
+    "@nx/vite": "21.6.10",
+    "vite": "^7.0.0"
+  },
+  "sideEffects": false
+}

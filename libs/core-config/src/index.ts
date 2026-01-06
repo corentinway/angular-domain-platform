@@ -1,2 +1,2 @@
-export * from './lib/core-config/config.service';
-export * from './lib/core-config/config.token';
+export * from './lib/config.service';
+export * from './lib/config.token';

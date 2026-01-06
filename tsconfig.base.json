@@ -8,10 +8,8 @@
     "lib": ["es2020", "dom"],
     "baseUrl": ".",
     "paths": {
-      "@portfolio-platform/core-config": ["core-config/src/index.ts"],
-      "@portfolio-platform/core-http": [
-        "core-config/src/lib/core-config/core-http/src/index.ts"
-      ]
+      "@portfolio-platform/core-config": ["libs/core-config/src/index.ts"],
+      "@portfolio-platform/core-http": ["libs/core-http/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
