@@ -17,9 +17,13 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: 'npm'
       
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
@@ -28,9 +32,17 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
       
-      # Run lint, unit tests, build and e2e for all projects
-      - name: Run Nx tasks
-        run: npx nx run-many -t lint test build e2e
+      - name: Lint affected projects
+        run: npx nx affected -t lint --base=origin/main
+
+      - name: Test affected projects
+        run: npx nx affected -t test --base=origin/main 
+
+      - name: Build affected projects
+        run: npx nx affected -t build --base=origin/main  
+
+      - name: Run affected e2e tests
+        run: npx nx affected -t e2e --base=origin/main
       
       - name: Nx CI diagnostic
         if: always()
