@@ -35,16 +35,16 @@ jobs:
         run: npx playwright install --with-deps
       
       - name: Lint affected projects
-        run: npx nx affected -t lint --base=origin/main --skip-nx-cloud
+        run: npx nx affected -t lint --base=origin/main --no-nx-cloud
 
       - name: Test affected projects
-        run: npx nx affected -t test --base=origin/main --skip-nx-cloud
+        run: npx nx affected -t test --base=origin/main --no-nx-cloud
 
       - name: Build affected projects
-        run: npx nx affected -t build --base=origin/main --skip-nx-cloud
+        run: npx nx affected -t build --base=origin/main --no-nx-cloud
 
       - name: Run affected e2e tests
-        run: npx nx affected -t e2e --base=origin/main --skip-nx-cloud
+        run: npx nx affected -t e2e --base=origin/main --no-nx-cloud
       
       - name: Nx CI diagnostic
         if: always()
