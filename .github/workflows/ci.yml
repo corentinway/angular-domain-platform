@@ -41,7 +41,7 @@ jobs:
         run: npx nx affected -t test --base=origin/main --no-cloud
 
       - name: Build affected projects
-        run: npx nx affected -t build --base=origin/main --no-cloud --verbose
+        run: NODE_OPTIONS=--max-old-space-size=4096 npx nx affected -t build --base=origin/main --no-cloud --verbose
 
       - name: Run affected e2e tests
         run: npx nx affected -t e2e --base=origin/main --no-cloud
