@@ -2,12 +2,12 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { App } from './app/app';
 
 import { CORE_CONFIG } from '@portfolio-platform/core-config';
-import { coreHttpInterceptors } from '@portfolio-platform/core-http';
+import { coreHttpInterceptor } from '@portfolio-platform/core-http';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 bootstrapApplication(App, {
   providers: [
-    provideHttpClient(withInterceptors([coreHttpInterceptors])),
+    provideHttpClient(withInterceptors([coreHttpInterceptor])),
     {
       provide: CORE_CONFIG,
       useValue: {

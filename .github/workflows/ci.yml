@@ -13,10 +13,13 @@ permissions:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch all history for accurate 'affected' calculations
 
 
       - name: Setup Node.js
@@ -33,16 +36,16 @@ jobs:
         run: npx playwright install --with-deps
       
       - name: Lint affected projects
-        run: npx nx affected -t lint --base=origin/main
+        run: npx nx affected -t lint --base=origin/main --no-cloud
 
       - name: Test affected projects
-        run: npx nx affected -t test --base=origin/main 
+        run: npx nx affected -t test --base=origin/main --no-cloud
 
       - name: Build affected projects
-        run: npx nx affected -t build --base=origin/main  
+        run: NODE_OPTIONS=--max-old-space-size=4096 npx nx affected -t build --base=origin/main --no-cloud --verbose --parallel=1
 
       - name: Run affected e2e tests
-        run: npx nx affected -t e2e --base=origin/main
+        run: npx nx affected -t e2e --base=origin/main --no-cloud
       
       - name: Nx CI diagnostic
         if: always()

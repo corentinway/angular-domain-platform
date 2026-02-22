@@ -5,4 +5,5 @@ export interface CoreConfig {
   environment: 'dev' | 'staging' | 'prod';
   featureFlags?: Record<string, boolean>;
 }
+
 export const CORE_CONFIG = new InjectionToken<CoreConfig>('CORE_CONFIG');

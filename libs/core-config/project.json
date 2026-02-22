@@ -11,12 +11,12 @@
       "executor": "@nx/angular:ng-packagr-lite",
       "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
       "options": {
-        "project": "core-config/ng-package.json",
-        "tsConfig": "core-config/tsconfig.lib.json"
+        "project": "libs/core-config/ng-package.json",
+        "tsConfig": "libs/core-config/tsconfig.lib.json"
       },
       "configurations": {
         "production": {
-          "tsConfig": "core-config/tsconfig.lib.prod.json"
+          "tsConfig": "libs/core-config/tsconfig.lib.prod.json"
         },
         "development": {}
       },
